@@ -1,0 +1,205 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portada Moodle</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* ==================================================
+   VARIABLES POR CURSO
+   ================================================== */
+
+.curso-base {
+  --fondo-desktop: url("Ilustración-PARADAS-maquetacion_FONDO.jpg");
+  --fondo-mobile: url("Ilustración-PARADAS-maquetacion_FONDO.jpg");
+
+  --parada1-top: 30%; 
+  --parada1-left: 25%;
+
+  --parada2-top: 30%; 
+  --parada2-left: 50%;
+
+  --parada3-top: 30%; 
+  --parada3-left: 75%;
+
+  --actividad-top: 65%;
+  --actividad-left: 50%;
+}
+
+/* ==================================================
+   PORTADA
+   ================================================== */
+
+.portada {
+  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  background-image: var(--fondo-desktop);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ==================================================
+   ÍCONOS DESKTOP
+   ================================================== */
+
+.iconos {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.iconos a.icono {
+  position: absolute;
+  text-decoration: none;
+  transform: translate(-50%, -50%);
+}
+
+.iconos img {
+  width: 250px;
+  transition: transform 0.3s ease;
+}
+
+/* Hover solo en dispositivos con mouse */
+@media (hover: hover) {
+  .iconos img:hover {
+    transform: scale(1.15);
+  }
+}
+
+/* ===== posiciones por ícono ===== */
+
+.icono-parada1 {
+  top: var(--parada1-top);
+  left: var(--parada1-left);
+}
+
+.icono-parada2 {
+  top: var(--parada2-top);
+  left: var(--parada2-left);
+}
+
+.icono-parada3 {
+  top: var(--parada3-top);
+  left: var(--parada3-left);
+}
+
+.icono-actividad {
+  top: var(--actividad-top);
+  left: var(--actividad-left);
+}
+
+
+/* ==================================================
+   AJUSTES PROGRESIVOS (evita solapamiento)
+   ================================================== */
+
+@media (max-width: 1200px) {
+  .iconos img {
+    width: 170px;
+  }
+}
+
+@media (max-width: 900px) {
+  .iconos img {
+    width: 140px;
+  }
+}
+
+/* ==================================================
+   MOBILE
+   ================================================== */
+
+@media (max-width: 600px) {
+
+  .portada {
+    background-image: var(--fondo-mobile);
+  }
+
+  .iconos {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    padding: 2rem 0;
+  }
+
+  .iconos a.icono {
+    position: static;
+    transform: none;
+  }
+
+  .iconos img {
+    width: 80%;
+  }
+
+  /* Imágenes mobile */
+  .icono-parada1 img {
+    content: url("Ilustración-PARADAS-maquetacion-ICONOS_Parada1.png");
+  }
+
+  .icono-parada2 img {
+    content: url("Ilustración-PARADAS-maquetacion-ICONOS_Parada2.png");
+  }
+
+  .icono-parada3 img {
+    content: url("Ilustración-PARADAS-maquetacion-ICONOS_Parada3.png");
+  }
+
+  .icono-actividad img {
+    content: url("Ilustración-PARADAS-maquetacion-ICONOS-AA.png");
+  }
+
+} /* ← ESTA LLAVE FALTABA, Y HABÍA UNA DE MÁS ANTES */
+
+</style>
+</head>
+
+<body>
+<div class="portada curso-base">
+  <div class="iconos">
+
+    <a class="icono icono-parada1"
+       href="https://isep-cba.edu.ar/campus/mod/book/view.php?id=22870">
+      <img src="Ilustración-PARADAS-maquetacion-ICONOS_Parada1.png" alt="Parada_1__desk">
+    </a>
+
+    <a class="icono icono-parada2"
+       href="https://isep-cba.edu.ar/campus/mod/book/view.php?id=23066">
+      <img src="Ilustración-PARADAS-maquetacion-ICONOS_Parada2.png" alt="Parada_2__desk">
+    </a>
+
+    <a class="icono icono-parada3"
+       href="https://isep-cba.edu.ar/campus/mod/book/view.php?id=23078">
+      <img src="Ilustración-PARADAS-maquetacion-ICONOS_Parada3.png" alt="Parada_3__desk">
+    </a>
+
+    <a class="icono icono-actividad"
+       href="https://isep-cba.edu.ar/campus/mod/page/view.php?id=22866"">
+      <img src="Ilustración-PARADAS-maquetacion-ICONOS-AA.png" alt="actividad_desk">
+    </a>
+
+  </div>
+</div>
+</body>
+</html>
